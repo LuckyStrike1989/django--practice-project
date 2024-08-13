@@ -2,9 +2,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from burgers.models import Burger
 
+def index(request):
+    return render(request, "index.html")
+
 def main(request):
-    return render(request, "main.html")
-    #return HttpResponse("안녕하세요, Python")
+    #return render(request, "main.html")
+    return HttpResponse("안녕하세요, Python")
     
 def burger_list(request):
     burgers = Burger.objects.all()
@@ -18,14 +21,16 @@ def burger_list(request):
     #return HttpResponse("pyburger의 햄버거 목록입니다")
 
 def burger_search(request):
-    print("request ::: ", request)
-
     keyword = request.GET.get("keyword")
-    print("keyword ::: ", keyword)
 
-    burgers = Burger.objects.filter(name__contains=keyword)
-    print("burgers ::: ", burgers)
-
+    # keyword 값이 없을때 처리
+    if keyword is not None:
+        # keyword 값이 있을때 데이터 불러옴
+        burgers = Burger.objects.filter(name__contains=keyword)
+    else:
+        # keyword 값이 없을때 []값으로 처리
+        burgers = Burger.objects.none()
+    
     context = {
         "burgers" : burgers
     }

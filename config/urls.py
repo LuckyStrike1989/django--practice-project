@@ -19,10 +19,13 @@ from django.urls import path
 from config.views import main
 from config.views import burger_list
 from config.views import burger_search
+from config.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", main),
+    path("", index),
+
+    path("main/", main),
     path("burgers/", burger_list),
     path("search/", burger_search),
 ]
