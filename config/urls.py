@@ -20,10 +20,12 @@ from config.views import main
 from config.views import burger_list
 from config.views import burger_search
 from config.views import index
+from blog.views import post_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index),
+    path("posts/", post_list),
 
     path("main/", main),
     path("burgers/", burger_list),

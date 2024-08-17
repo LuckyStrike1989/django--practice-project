@@ -8,7 +8,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-class Comment(models.Model):
+class Comment(models.Model):    # N방향의 모델 (Comment)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField("댓글 내용")
 
