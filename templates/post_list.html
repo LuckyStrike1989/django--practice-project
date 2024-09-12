@@ -10,12 +10,13 @@
   <body>
     <div id="navbar">
       <span>pylog</span>
+      <a href="/posts/add" class="btn btn-primary">글 작성</a>
     </div>
     <div id="post-list">
       <ul class="posts">
         {% for post in posts %}
         <li class="post">
-          <div>{{ post.title }}</div>
+          <div><a href="/posts/{{ post.id }}/">{{ post.title }}</a></div>
           <p>{{ post.content }}</p>
           <!-- 순회 중인 post와 연결된 모든 comment QuerySet -->
           <ul class="comments">

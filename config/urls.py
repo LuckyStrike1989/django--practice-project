@@ -22,13 +22,14 @@ from config.views import main
 from config.views import burger_list
 from config.views import burger_search
 from config.views import index
-from blog.views import post_list, post_detail
+from blog.views import post_list, post_detail, post_add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index),
     path("posts/", post_list),
-    path("detail/<int:post_id>/", post_detail),
+    path("posts/<int:post_id>/", post_detail),
+    path("posts/add/", post_add),
 
     path("main/", main),
     path("burgers/", burger_list),

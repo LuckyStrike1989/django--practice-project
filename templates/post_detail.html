@@ -9,10 +9,20 @@
   </head>
   <body>
     <div id="navbar">
-      <span>pylog</span>
+      {% if post.thumbnail %}
+      <img src="/media/{{ post.thumbnail }}" />
+      {% endif %}
+      <span>{{ post.title }}</span>
     </div>
     <div id="post-detail">
-      <h1>Post Detail</h1>
+      <p>{{ post.content|linebreaks }}</p>
+      <ul class="comments">
+        {% for comment in post.comment_set.all %}
+        <li class="comment">{{ comment.content }}</li>
+        {% empty %}
+        <li class="comment-empty">아직 댓글이 없습니다</li>
+        {% endfor %}
+      </ul>
     </div>
   </body>
 </html>
