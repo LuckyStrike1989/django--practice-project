@@ -10,6 +10,7 @@ class Post(models.Model):
         return self.title
 
 class Comment(models.Model):    # N방향의 모델 (Comment)
+    # Post 모델과 ForeignKey 관계로 연결
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField("댓글 내용")
 
