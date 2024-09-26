@@ -3,11 +3,11 @@ from django.shortcuts import render
 from burgers.models import Burger
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "burger/index.html")
 
 def main(request):
-    #return render(request, "main.html")
-    return HttpResponse("안녕하세요, Python")
+    return render(request, "burger/main.html")
+    #return HttpResponse("안녕하세요, Python")
     
 def burger_list(request):
     burgers = Burger.objects.all()
@@ -17,7 +17,7 @@ def burger_list(request):
         "burgers" : burgers
     }
 
-    return render(request, "burger_list.html", context)
+    return render(request, "burger/burger_list.html", context)
     #return HttpResponse("pyburger의 햄버거 목록입니다")
 
 def burger_search(request):
@@ -35,4 +35,4 @@ def burger_search(request):
         "burgers" : burgers
     }
 
-    return render(request, "burger_search.html", context)
+    return render(request, "burger/burger_search.html", context)
