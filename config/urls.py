@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from config.views import main, burger_list, burger_search, index
-from blog.views import post_list, post_detail, post_add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +26,7 @@ urlpatterns = [
 
     path("blog/", include('blog.urls')),
     path("stocks/", include('stocks.urls')),
+    path("pystagram/", include('pystagram.urls')),
 
     path("main/", main),
     path("burgers/", burger_list),
