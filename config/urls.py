@@ -22,11 +22,14 @@ from config.views import main, burger_list, burger_search, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", index),
+    #path("", index),
+    path("", main),
 
     path("blog/", include('blog.urls')),
     path("stocks/", include('stocks.urls')),
     path("pystagram/", include('pystagram.urls')),
+    path("users/", include('users.urls')),
+    path("posts/", include('posts.urls')),
 
     path("main/", main),
     path("burgers/", burger_list),
