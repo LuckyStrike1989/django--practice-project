@@ -1,9 +1,14 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from burgers.models import Burger
 
 def index(request):
-    return render(request, "burger/index.html")
+    # 로그인되어 있는 경우, 피드 페이지로 redirect
+    if request.user.is_authenticated:
+        return redirect("/posts/feeds")
+    else:
+        return redirect("/users/login")
+    #return render(request, "burger/index.html")
 
 def main(request):
     return render(request, "burger/main.html")

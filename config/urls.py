@@ -22,8 +22,8 @@ from config.views import main, burger_list, burger_search, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path("", index),
-    path("", main),
+    path("", index),
+    #path("", main),
 
     path("blog/", include('blog.urls')),
     path("stocks/", include('stocks.urls')),
